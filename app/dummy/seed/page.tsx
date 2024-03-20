@@ -24,7 +24,7 @@ async function seedDummydata() {
   await products.map(async (product: any) => {
     try {
       const productCreated = await stripe.products.create( product );
-      console.log(productCreated.name)
+     
       
      
     } catch (e: any) {
@@ -38,8 +38,8 @@ export default async function seed() {
   return (
     <div className="container flex items-center justify-center my-11">
       <h1 className="text-xl text-green-600 font-extrabold">
-        dummy data created in your Inventory. If you don't see it on your
-        products dashboard{" "}
+        dummy data created in your Inventory. If you dont see it on your
+        products dashboard
       </h1>
     </div>
   );
