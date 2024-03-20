@@ -9,6 +9,7 @@ async function getProducts() {
       limit: 9,
       expand: ["data.default_price"],
     });
+  
 
     return stipeProduct.data.map((p: Stripe.Product): Products => {
       return {
@@ -17,8 +18,8 @@ async function getProducts() {
         description: p.description ?? "",
         price: (p.default_price as Stripe.Price).unit_amount_decimal ?? "0",
         currency: (p.default_price as Stripe.Price).currency ?? "BRL",
-        images: p.images,
         image: p.images[0],
+        images: p.images,
       };
     });
   } catch (e: any) {

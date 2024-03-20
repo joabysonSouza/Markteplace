@@ -51,6 +51,7 @@ export default function ProductCard({
       image,
       currency,
       price: Number(price),
+      
     });
 
     toast({
@@ -58,6 +59,11 @@ export default function ProductCard({
       description: "adiçione mais produtos ao carrinho de compras ",
     });
   }
+
+  const loaderProp =({ src }:{src : any}) => {
+    return src;
+}
+
   return (
     <>
       <Card>
@@ -67,10 +73,11 @@ export default function ProductCard({
           </CardTitle>
           <CardDescription className="relative w-full h-60">
             <Image
-              src={image}
+               src={image}
               alt={name}
               fill
               sizes="100%"
+              loader={loaderProp}
               className="object-contain"
             />
           </CardDescription>
